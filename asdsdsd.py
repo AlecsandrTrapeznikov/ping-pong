@@ -15,6 +15,15 @@ while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
+    keys = key.get_pressed()
+    if keys[K_UP]:
+        y1   -= 0.5
+    if keys[K_DOWN]:
+        y1 += 0.5
+    if keys[K_w]:
+        y -= 0.5
+    if keys[K_s]:
+        y += 0.5
         
     window.fill((255,255,255))
     window.blit(img, (x,y))
