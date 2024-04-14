@@ -9,5 +9,6 @@ while game:
   for e in event.get():
       if e.type == QUIT:
           game = False
+  window.blit(img, (0,0))
 
   display.update()
