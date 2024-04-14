@@ -1,4 +1,5 @@
 from pygame import*
+from random import randint
 
 window = display.set_mode((600,600))
 
@@ -18,7 +19,8 @@ class GameSprite(sprite.Sprite):
 ball=GameSprite('мяч.png',300, 300, 80, 50, 5)
 platform2 = GameSprite('platform.png',20, 10, 80, 150, 5)
 platform1 = GameSprite('platform.png',550, 10, 80, 150, 5)
-x2=1
+x2= 1
+y2 = 1
 while game:
     for e in event.get():
         if e.type == QUIT:
@@ -33,11 +35,14 @@ while game:
     elif keys[K_s]:
         platform2.rect.y +=  platform2.speed
     ball.rect.x += x2
+    ball.rect.y += y2
     
     if sprite.collide_rect(ball, platform1):
         x2 = -2
+        y2 = -y2*(randint(1,10))
     if sprite.collide_rect(ball, platform2):
-       x2 =2
+       x2 = 2
+       y2 = -y2*(randint(1,10))
         
     window.fill((255,141,24))
 
@@ -45,7 +50,4 @@ while game:
     platform1.reset()
     platform2.reset()
     fps.tick(60)
-    display.update()
-    window.blit(img2, (x1,y1))
-
     display.update()
