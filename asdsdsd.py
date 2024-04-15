@@ -1,6 +1,5 @@
 from pygame import *
 from random import randint
-font.init()
 
 window = display.set_mode((600, 600))
 
@@ -20,7 +19,6 @@ class GameSprite(sprite.Sprite):
 
     def reset(self):
         window.blit(self.image, (self.rect.x, self.rect.y))
-
 
 ball = GameSprite('мяч.png', 300, 300, 80, 50, 5, 0)
 platform2 = GameSprite('platform.png', 20, 10, 80, 150, 5, 0)
@@ -45,10 +43,10 @@ while game:
 
     if sprite.collide_rect(ball, platform1):
         x2 = -2
-        y2 = -y2 * (randint(1, 10))
+        y2 = -y2 * (randint(1, 5))
     if sprite.collide_rect(ball, platform2):
         x2 = 2
-        y2 = -y2 * (randint(1, 10))
+        y2 = -y2 * (randint(1, 5))
     if ball.rect.x > 620:
         ball.rect.x = 300
         ball.rect.y = 300
@@ -65,6 +63,7 @@ while game:
         platform1.points += 1
     if ball.rect.x < 0 and ball.rect.y < 600:
         platform2.points += 1
+
     window.fill((255, 141, 24))
 
     ball.reset()
