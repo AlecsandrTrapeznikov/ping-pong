@@ -63,6 +63,8 @@ while game:
         platform1.points += 1
     if ball.rect.x < 0 and ball.rect.y < 600:
         platform2.points += 1
+    if platform1.points == 10 or platform2.points == 10:
+        game = False
 
     window.fill((255, 141, 24))
 
