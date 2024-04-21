@@ -72,11 +72,10 @@ while game:
     if platform1.points >= 10:
         text3 = f1.render('player2 win',True,(0,0,0))
         window.blit(text3, (300,200))
-            game = False
     if platform2.points >= 10:
         text3 = f1.render('player1 win',True,(0,0,0))
         window.blit(text3, (300,200))
-            game = False
+
 
 
 
